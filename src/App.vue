@@ -23,7 +23,7 @@ const taskText = computed(() => `${factorA.value} x ${factorB.value}`)
 const remainingForEmoji = computed(() => Math.max(rewardThreshold.value - streak.value, 0))
 
 const setupRewardThreshold = () => {
-  rewardThreshold.value = randomInt(2, 4)
+  rewardThreshold.value = 10
 }
 
 const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5)
