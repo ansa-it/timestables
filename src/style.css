@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700;800&display=swap');
+
+:root {
+  --bg-top: #d8f3ff;
+  --bg-mid: #fff9e4;
+  --bg-bottom: #ffe4d6;
+  --card: #ffffff;
+  --ink: #29404a;
+  --soft-ink: #4e6773;
+  --good: #33b95d;
+  --bad: #ef5350;
+  --shadow: 0 12px 28px rgba(41, 64, 74, 0.14);
+
+  font-family: 'Baloo 2', 'Trebuchet MS', sans-serif;
+  line-height: 1.35;
+  font-weight: 400;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  color: var(--ink);
+  background: linear-gradient(180deg, var(--bg-top) 0%, var(--bg-mid) 48%, var(--bg-bottom) 100%);
+}
+
+body::before,
+body::after {
+  content: '';
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  opacity: 0.25;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::before {
+  left: -90px;
+  top: -70px;
+  background: radial-gradient(circle, #91e7ff 0%, transparent 70%);
+}
+
+body::after {
+  right: -110px;
+  bottom: -90px;
+  background: radial-gradient(circle, #ffc390 0%, transparent 70%);
+}
+
+.app-shell {
+  position: relative;
+  z-index: 1;
+  min-height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+}
+
+.game-card {
+  position: relative;
+  overflow: hidden;
+  width: min(560px, 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fffdfa 100%);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+  padding: 20px 16px 18px;
+  border: 3px solid #f6efe7;
+}
+
+.emoji-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(1px);
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(1.8rem, 4.8vw, 2.4rem);
+  text-align: center;
+  letter-spacing: 0.3px;
+}
+
+.subtitle {
+  margin: 2px 0 14px;
+  text-align: center;
+  color: var(--soft-ink);
+  font-size: 1.05rem;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.stat-box {
+  background: #f7fbff;
+  border: 2px solid #e6f2fb;
+  border-radius: 14px;
+  text-align: center;
+  padding: 8px 6px;
+}
+
+.stat-label {
+  display: block;
+  color: var(--soft-ink);
+  font-size: 0.9rem;
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.question {
+  background: linear-gradient(135deg, #fff5d2 0%, #ffebbf 100%);
+  border: 3px dashed #f2ca63;
+  border-radius: 16px;
+  padding: 12px;
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.question-lead {
+  margin: 0 0 3px;
+  color: #8c6824;
+  font-size: 0.95rem;
+}
+
+.question-task {
+  margin: 0;
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  font-weight: 800;
+  color: #6d4d0d;
+}
+
+.answers {
+  display: grid;
+  gap: 10px;
+}
+
+.answer-btn {
+  border: none;
+  border-radius: 14px;
+  padding: 12px 10px;
+  font: inherit;
+  font-size: 1.3rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #143640;
+  background: linear-gradient(180deg, #dcf6ff 0%, #bfeeff 100%);
+  border-bottom: 4px solid #88d8f6;
+  transition: transform 0.13s ease, filter 0.13s ease;
+}
+
+.answer-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.answer-btn:active {
+  transform: translateY(1px);
+}
+
+.answer-btn.correct {
+  background: linear-gradient(180deg, #b8f3cb 0%, #98e9b4 100%);
+  border-bottom-color: #64c689;
+}
+
+.answer-btn.wrong {
+  background: linear-gradient(180deg, #ffc4c3 0%, #ffa9a8 100%);
+  border-bottom-color: #ef7a79;
+}
+
+.answer-btn.disabled {
+  cursor: default;
+  opacity: 0.9;
+}
+
+.feedback {
+  margin: 12px 0 0;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.07rem;
+  font-weight: 700;
+  color: var(--soft-ink);
+}
+
+.feedback.good {
+  color: var(--good);
+}
+
+.feedback.bad {
+  color: var(--bad);
+}
+
+.emoji-burst {
+  font-size: clamp(4rem, 24vw, 6.8rem);
+  text-align: center;
+  animation: pop 580ms ease;
+  user-select: none;
+  text-shadow: 0 4px 12px rgba(41, 64, 74, 0.28);
+}
+
+@keyframes pop {
+  0% {
+    transform: scale(0.4) rotate(-10deg);
+    opacity: 0;
+  }
+
+  60% {
+    transform: scale(1.18) rotate(4deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-card {
+    padding: 16px 12px 14px;
+    border-radius: 22px;
+  }
+
+  .stat-value {
+    font-size: 1.15rem;
+  }
+
+  .answer-btn {
+    font-size: 1.18rem;
+    padding: 11px 8px;
+  }
+}
