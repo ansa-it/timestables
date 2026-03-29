@@ -25,5 +25,21 @@
       "type": "image/png",
       "purpose": "maskable"
     }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Kleines 1x1 – Desktopansicht"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "390x627",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Kleines 1x1 – Mobilansicht"
+    }
   ]
 }

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'timestables-v2'
+const CACHE_NAME = 'timestables-v3'
 const APP_SHELL = ['/', '/index.html', '/manifest.webmanifest', '/favicon.svg']
 
 self.addEventListener('install', (event) => {
