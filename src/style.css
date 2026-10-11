@@ -64,7 +64,8 @@ body {
 
 .app-header {
   top: 0;
-  height: var(--header-h);
+  height: calc(var(--header-h) + env(safe-area-inset-top, 0px));
+  padding-top: env(safe-area-inset-top, 0px);
   border-bottom: 1px solid rgba(16, 76, 95, 0.14);
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(239, 251, 255, 0.92) 100%);
 }
@@ -99,7 +100,7 @@ body {
 
 .header-title {
   margin: 2px 0 0;
-  font-size: clamp(1.1rem, 3.4vw, 1.45rem);
+  font-size: clamp(1.5rem, 5.5vw, 2.2rem);
   line-height: 1.1;
 }
 
@@ -153,7 +154,7 @@ body {
   overflow: hidden;
   display: flex;
   align-items: center;
-  padding: calc(var(--header-h) + 14px) 14px calc(var(--footer-h) + 18px);
+  padding: calc(var(--header-h) + env(safe-area-inset-top, 0px) + 14px) 14px calc(var(--footer-h) + 18px);
 }
 
 .screen {

@@ -141,7 +141,7 @@ generateQuestion()
             </p>
           </div>
 
-          <div class="reward-ring" aria-label="Belohnung in {{ remainingForEmoji }} richtigen Antworten">
+          <div class="reward-ring" aria-label="Belohnung in {{ streakCycleProgress }} Antworten">
             <svg viewBox="0 0 44 44" class="ring-svg" aria-hidden="true">
               <circle class="ring-track" cx="22" cy="22" :r="progressRadius" />
               <circle
@@ -153,7 +153,7 @@ generateQuestion()
                 :stroke-dashoffset="rewardProgressOffset"
               />
             </svg>
-            <span class="ring-text">{{ remainingForEmoji }}</span>
+            <span class="ring-text">{{ streakCycleProgress }}</span>
           </div>
         </div>
       </div>
